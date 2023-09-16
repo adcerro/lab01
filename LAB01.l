@@ -41,7 +41,22 @@ COMMAND	{CREATE}|{DROP}|{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
 .|\n    { printf("%s", yytext); } /* Pass through other characters */
 %%
 
-int main() {
+int main(int argc, char* argv[]) {
+     if (argc != 2) {
+        printf("Usage: %s <input_file>\n", argv[0]);
+        return 1;
+    }
+
+    FILE* inputFile = fopen(argv[1], "r");
+    if (inputFile == NULL) {
+        perror("Error opening input file");
+        return 1;
+    }
+
+    yyin = inputFile;
     yylex();
+
+    fclose(inputFile);
+
     return 0;
 }
