@@ -49,10 +49,16 @@ TYPE {INTEGER}|{DECIMAL}|{VARCHAR}
 ")" {
     printf(" parcierr=%s", yytext);
 }
-";"	{
+;(" ")+	{
+	printf(" puntcoma=;\n");
+}
+;\n	{
+	printf(" puntcoma=%s", yytext);
+}
+;	{
 	printf(" puntcoma=%s\n", yytext);
 }
-\n {}
+\n {printf(" ");}
 .    { printf("%s", yytext); } /* Pass through other characters */
 %%
 
