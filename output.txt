@@ -1,7 +1,7 @@
-CREATE TABLE Empleado(nombre Varchar(20), cédula Integer, salario Decimal(2)); INSERT
-INTO Empleado VALUES(‘Juan’,1045268154, 12aab);
-SELECT FROM a;
-SELECT COUNT() FROM tabla;
-SELECT nombre, MAX(salario) FROM Empleado;
-UPDATE SET nombre=’Carlos’ FROM Empleado WHERE cédula=12.5;
-SELECT * FROM Empleado WHERE salario<2000000 ORDER BY nombre ASC . ;
+CREATE TABLE Empleado parabre=(nombre VARCHAR parabre=(20 parcierr=), cédula INTEGER, salario DECIMAL parabre=(2 parcierr=) parcierr=) puntcoma=;
+ INSERTINTO Empleado VALUES parabre=(‘Juan’,1045268154, 12aab parcierr=) puntcoma=;
+SELECT FROM a puntcoma=;
+SELECT COUNT parabre=( parcierr=) FROM tabla puntcoma=;
+SELECT nombre, MAX parabre=(salario parcierr=) FROM Empleado puntcoma=;
+UPDATE SET nombre=’Carlos’ FROM Empleado WHERE cédula=12.5 puntcoma=;
+SELECT * FROM Empleado WHERE salario<2000000 ORDER BY nombre ASC .  puntcoma=;

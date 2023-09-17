@@ -30,15 +30,30 @@ MANIPULATE {INSERT}|{DELETE}|{UPDATE}
 FUNCTION {MAX}|{MIN}|{AVG}|{COUNT}
 RESERVED {INTO}|{VALUES}|{FROM}|{SET}|{ASC}|{DESC}
 COMMAND	{CREATE}|{DROP}|{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
+ID [:alnum:][:alpha:]*
+INTEGER [Ii][Nn][Tt][Ee][Gg][Ee][Rr]
+DECIMAL [Dd][Ee][Cc][Ii][Mm][Aa][Ll]
+VARCHAR [Vv][Aa][Rr][Cc][Hh][Aa][Rr]
+TYPE {INTEGER}|{DECIMAL}|{VARCHAR}
 %%
-{COMMAND} {
+{COMMAND}|{TYPE} {
     int len = yyleng;
     for (int i = 0; i < len; i++) {
         yytext[i] = toupper(yytext[i]);
     }
     printf("%s", yytext);
 }
-.|\n    { printf("%s", yytext); } /* Pass through other characters */
+"(" {
+    printf(" parabre=%s", yytext);
+}
+")" {
+    printf(" parcierr=%s", yytext);
+}
+";"	{
+	printf(" puntcoma=%s\n", yytext);
+}
+\n {}
+.    { printf("%s", yytext); } /* Pass through other characters */
 %%
 
 int main(int argc, char* argv[]) {
