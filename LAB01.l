@@ -30,11 +30,14 @@ MANIPULATE {INSERT}|{DELETE}|{UPDATE}
 FUNCTION {MAX}|{MIN}|{AVG}|{COUNT}
 RESERVED {INTO}|{VALUES}|{FROM}|{SET}|{ASC}|{DESC}
 COMMAND	{CREATE}|{DROP}|{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
-ID [:alnum:][:alpha:]*
+ID [:alpha:][:alnum:]*
 INTEGER [Ii][Nn][Tt][Ee][Gg][Ee][Rr]
 DECIMAL [Dd][Ee][Cc][Ii][Mm][Aa][Ll]
 VARCHAR [Vv][Aa][Rr][Cc][Hh][Aa][Rr]
 TYPE {INTEGER}|{DECIMAL}|{VARCHAR}
+DIGIT [0-9]
+ALPHA [:alpha:]
+ALNUM [:alnum:]
 %%
 {COMMAND}|{TYPE} {
     int len = yyleng;
@@ -43,11 +46,44 @@ TYPE {INTEGER}|{DECIMAL}|{VARCHAR}
     }
     printf("%s", yytext);
 }
+{DIGIT}+("."|,){DIGIT} {
+    printf(" decimal=%s", yytext);
+}
+{DIGIT}+{ALPHA}+ {
+    printf(" ERROR=%s", yytext);
+}
+{DIGIT}+ {
+    printf(" entero=%s", yytext);
+}
+"=="  {
+   printf(" igualdad=%s", yytext); 
+}
+"="  {
+   printf(" asign=%s", yytext); 
+}
 "(" {
     printf(" parabre=%s", yytext);
 }
 ")" {
     printf(" parcierr=%s", yytext);
+}
+,	{
+	printf(" coma=%s", yytext);
+}
+"<>"	{
+	printf(" diferencia=%s", yytext);
+}
+"<="	{
+	printf(" menoroigualq=%s", yytext);
+}
+">="	{
+	printf(" mayoroigualq=%s", yytext);
+}
+"<"	{
+	printf(" menorq=%s", yytext);
+}
+">"	{
+	printf(" mayorq=%s", yytext);
 }
 ;(" ")+	{
 	printf(" puntcoma=;\n");
