@@ -1,7 +1,7 @@
 CREATE TABLE Empleado parabre=(nombre VARCHAR parabre=( entero=20 parcierr=) coma=, cédula INTEGER coma=, salario DECIMAL parabre=( entero=2 parcierr=) parcierr=) puntcoma=;
-INSERT INTO Empleado VALUES parabre=(‘Juan’ coma=, entero=1045268154 coma=,  ERROR=12aab parcierr=) puntcoma=;
+INSERT INTO Empleado VALUES parabre=( cadena="Juan" coma=, entero=1045268154 coma=,  entero=12aab parcierr=) puntcoma=;
 SELECT FROM a puntcoma=;
 SELECT COUNT parabre=( parcierr=) FROM tabla puntcoma=;
 SELECT nombre coma=, MAX parabre=(salario parcierr=) FROM Empleado puntcoma=;
-UPDATE SET nombre asign==’Carlos’ FROM Empleado WHERE cédula asign== decimal=12.5 puntcoma=;
+UPDATE SET nombre asign== cadena='Carlos' FROM Empleado WHERE cédula asign== decimal=12.5 puntcoma=;
 SELECT * FROM Empleado WHERE salario menorq=< entero=2000000 ORDER BY nombre ASC .  puntcoma=;

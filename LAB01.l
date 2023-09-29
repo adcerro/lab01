@@ -36,8 +36,6 @@ DECIMAL [Dd][Ee][Cc][Ii][Mm][Aa][Ll]
 VARCHAR [Vv][Aa][Rr][Cc][Hh][Aa][Rr]
 TYPE {INTEGER}|{DECIMAL}|{VARCHAR}
 DIGIT [0-9]
-ALPHA [:alpha:]
-ALNUM [:alnum:]
 %%
 {COMMAND}|{TYPE} {
     int len = yyleng;
@@ -46,11 +44,14 @@ ALNUM [:alnum:]
     }
     printf("%s", yytext);
 }
+(\")[^"]*(\")   { 
+    printf(" cadena=%s", yytext); 
+}
+(\')[^']*(\')   { 
+    printf(" cadena=%s", yytext); 
+}
 {DIGIT}+("."|,){DIGIT} {
     printf(" decimal=%s", yytext);
-}
-{DIGIT}+{ALPHA}+ {
-    printf(" ERROR=%s", yytext);
 }
 {DIGIT}+ {
     printf(" entero=%s", yytext);
