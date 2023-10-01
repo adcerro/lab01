@@ -54,11 +54,6 @@ ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèì
 {INT} {
     printf(" entero=%s", yytext);
 }
-{DIGIT}" "?"*"" "?{DIGIT} {
-    printf("%.1s", yytext);
-    printf(" multiplicación=* ");
-    printf("%.1s", &yytext[yyleng-1]);
-}
 "+"  {
    printf(" suma=%s", yytext); 
 }
