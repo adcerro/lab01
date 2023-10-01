@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 int count = 0;
+int ecount = 0;
 char names[80][80];
 int found = 0;
 %}
@@ -17,6 +18,8 @@ RESERVED INTO|VALUES|FROM|SET|ASC|DESC
 COMMAND	{CREATE}|{DROP}|{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
 TYPE INTEGER|DECIMAL|VARCHAR
 DIGIT [0-9]
+INT {DIGIT}+
+FLOAT {DIGIT}+("."|,){DIGIT}
 ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèìòùâêîôûäëïöü]*
 %%
 {COMMAND}|{TYPE} {
@@ -45,11 +48,25 @@ ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèì
     }
     found = 0;
 }
-{DIGIT}+("."|,){DIGIT} {
+{FLOAT} {
     printf(" decimal=%s", yytext);
 }
-{DIGIT}+ {
+{INT} {
     printf(" entero=%s", yytext);
+}
+{DIGIT}" "?"*"" "?{DIGIT} {
+    printf("%.1s", yytext);
+    printf(" multiplicación=* ");
+    printf("%.1s", &yytext[yyleng-1]);
+}
+"+"  {
+   printf(" suma=%s", yytext); 
+}
+"-"  {
+   printf(" resta=%s", yytext); 
+}
+"/"  {
+   printf(" división=%s", yytext); 
 }
 "=="  {
    printf(" igualdad=%s", yytext); 
@@ -90,8 +107,19 @@ ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèì
 ;	{
 	printf(" puntcoma=%s\n", yytext);
 }
-\n {printf(" ");}
-.    { printf("%s", yytext); } /* Pass through other characters */
+"*" {
+    printf("asterisco=%s", yytext);
+}
+\n {
+    printf(" ");
+}
+" " {
+    printf(" ");
+}
+.    { 
+    printf("error=%s", yytext); 
+    ecount++;
+}
 %%
 
 int main(int argc, char* argv[]) {
@@ -113,6 +141,7 @@ int main(int argc, char* argv[]) {
     for (i = 0; i < count; i++) {
         printf("id%d= %s\n",i, names[i]);
     }
+    printf("\n%d errores léxicos",ecount);
     fclose(inputFile);
 
     return 0;
