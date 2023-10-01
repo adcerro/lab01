@@ -5,7 +5,7 @@
 #include <ctype.h>
 int count = 0;
 char names[80][80];
-int done =0;
+int found = 0;
 %}
 %option caseless
 CREATE CREATE" "TABLE
@@ -26,26 +26,24 @@ ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèì
     }
     printf("%s", yytext);
 }
-(\")[^"]*(\")   { 
-    printf(" cadena=%s", yytext); 
-}
-(\')[^']*(\')   { 
+(\")[^"]*(\")|(\')[^']*(\')   { 
     printf(" cadena=%s", yytext); 
 }
 {ID}   { 
-    printf("id%d=%s",count, yytext);
-    int i;
-    for (i = 0; i < count; i++) {
+    int i = 0;
+    while ( i < count && !found) {
         if (strcmp(names[i], yytext) == 0) {
-            done = 1;
-            break;
+            found = 1;
+            printf("id%d=%s",i, yytext);
         }
+        i++;
     }
-    if (!done) {
+    if (!found) {
         strcpy(names[count], yytext);
+        printf("id%d=%s",count, yytext);
         count++;
     }
-    done = 0;
+    found = 0;
 }
 {DIGIT}+("."|,){DIGIT} {
     printf(" decimal=%s", yytext);

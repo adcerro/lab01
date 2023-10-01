@@ -1,10 +1,10 @@
 CREATE TABLE id0=Empleado parabre=(id1=nombre VARCHAR parabre=( entero=20 parcierr=) coma=, id2=cédula INTEGER coma=, id3=salario DECIMAL parabre=( entero=2 parcierr=) parcierr=) puntcoma=;
-INSERT INTO id4=Empleado VALUES parabre=( cadena="Juan" coma=, entero=1045268154 coma=,  entero=12id4=aab parcierr=) puntcoma=;
+INSERT INTO id0=Empleado VALUES parabre=( cadena="Juan" coma=, entero=1045268154 coma=,  entero=12id4=aab parcierr=) puntcoma=;
 SELECT FROM id5=a puntcoma=;
 SELECT COUNT parabre=( parcierr=) FROM id6=tabla puntcoma=;
-SELECT id7=nombre coma=, MAX parabre=(id7=salario parcierr=) FROM id7=Empleado puntcoma=;
-UPDATE SET id7=nombre asign== cadena='Carlos' FROM id7=Empleado WHERE id7=cédula asign== decimal=12.5 puntcoma=;
-SELECT * FROM id7=Empleado WHERE id7=salario menorq=< entero=2000000 ORDER BY id7=nombre ASC .  puntcoma=;
+SELECT id1=nombre coma=, MAX parabre=(id3=salario parcierr=) FROM id0=Empleado puntcoma=;
+UPDATE SET id1=nombre asign== cadena='Carlos' FROM id0=Empleado WHERE id2=cédula asign== decimal=12.5 puntcoma=;
+SELECT * FROM id0=Empleado WHERE id3=salario menorq=< entero=2000000 ORDER BY id1=nombre ASC .  puntcoma=;
 
 7 identificadores
 

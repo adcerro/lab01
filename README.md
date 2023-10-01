@@ -64,7 +64,7 @@ Room for improvement:
 
 To do:
 - Detection of typing errors
-- Prper variable detection
+- Proper variable detection
 
 
 ## Acknowledgements
