@@ -1,5 +1,5 @@
 # Lex sql analizer
-> This is the second lab for my compilators class.
+> This is the second lab for my compilers class.
 > It is a sql analizer created using lex/flex
 
 ## Table of Contents
@@ -16,11 +16,7 @@
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+- This is a project for the compilers class, it doesn't intend to be too consice on refactoring the code, but rather precise at detecting the logic of sql commands
 
 
 ## Technologies Used
