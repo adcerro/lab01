@@ -3,39 +3,21 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+int count = 0;
+char names[80][80];
+int done =0;
 %}
-TABLE [Tt][Aa][Bb][Ll][Ee]
-CREATE [Cc][Rr][Ee][Aa][Tt][Ee]" "{TABLE}
-DROP [Dd][Rr][Oo][Pp]" "{TABLE}
-SELECT [Ss][Ee][Ll][Ee][Cc][Tt]
-WHERE [Ww][Hh][Ee][Rr][Ee]
-BY [Bb][Yy]
-GROUP [Gg][Rr][Oo][Uu][Pp]" "{BY}
-ORDER [Oo][Rr][Dd][Ee][Rr]" "{BY}
-INSERT [Ii][Nn][Ss][Ee][Rr][Tt]
-DELETE [Dd][Ee][Ll][Ee][Tt][Ee]
-UPDATE [Uu][Pp][Dd][Aa][Tt][Ee]
-MAX [Mm][Aa][Xx]
-MIN [Mm][Ii][Nn]
-AVG [Aa][Vv][Gg]
-COUNT [Cc][Oo][Uu][Nn][Tt]
-INTO [Ii][Nn][Tt][Oo]
-VALUES [Vv][Aa][Ll][Uu][Ee][Ss]
-FROM [Ff][Rr][Oo][Mm]
-SET [Ss][Ee][Tt]
-ASC [Aa][Ss][Cc]
-DESC [Dd][Ee][Ss][Cc]
-SEARCH {SELECT}|{WHERE}|{GROUP}|{ORDER}
-MANIPULATE {INSERT}|{DELETE}|{UPDATE}
-FUNCTION {MAX}|{MIN}|{AVG}|{COUNT}
-RESERVED {INTO}|{VALUES}|{FROM}|{SET}|{ASC}|{DESC}
+%option caseless
+CREATE CREATE" "TABLE
+DROP DROP" "TABLE
+SEARCH SELECT|WHERE|GROUP" "BY|ORDER" "BY
+MANIPULATE INSERT|DELETE|UPDATE
+FUNCTION MAX|MIN|AVG|COUNT
+RESERVED INTO|VALUES|FROM|SET|ASC|DESC
 COMMAND	{CREATE}|{DROP}|{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
-ID [:alpha:][:alnum:]*
-INTEGER [Ii][Nn][Tt][Ee][Gg][Ee][Rr]
-DECIMAL [Dd][Ee][Cc][Ii][Mm][Aa][Ll]
-VARCHAR [Vv][Aa][Rr][Cc][Hh][Aa][Rr]
-TYPE {INTEGER}|{DECIMAL}|{VARCHAR}
+TYPE INTEGER|DECIMAL|VARCHAR
 DIGIT [0-9]
+ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèìòùâêîôûäëïöü]*
 %%
 {COMMAND}|{TYPE} {
     int len = yyleng;
@@ -49,6 +31,21 @@ DIGIT [0-9]
 }
 (\')[^']*(\')   { 
     printf(" cadena=%s", yytext); 
+}
+{ID}   { 
+    printf("id%d=%s",count, yytext);
+    int i;
+    for (i = 0; i < count; i++) {
+        if (strcmp(names[i], yytext) == 0) {
+            done = 1;
+            break;
+        }
+    }
+    if (!done) {
+        strcpy(names[count], yytext);
+        count++;
+    }
+    done = 0;
 }
 {DIGIT}+("."|,){DIGIT} {
     printf(" decimal=%s", yytext);
@@ -113,7 +110,11 @@ int main(int argc, char* argv[]) {
 
     yyin = inputFile;
     yylex();
-
+    printf("\n%d identificadores\n\n",count);
+    int i;
+    for (i = 0; i < count; i++) {
+        printf("id%d= %s\n",i, names[i]);
+    }
     fclose(inputFile);
 
     return 0;

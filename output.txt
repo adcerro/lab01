@@ -1,7 +1,17 @@
-CREATE TABLE Empleado parabre=(nombre VARCHAR parabre=( entero=20 parcierr=) coma=, cédula INTEGER coma=, salario DECIMAL parabre=( entero=2 parcierr=) parcierr=) puntcoma=;
-INSERT INTO Empleado VALUES parabre=( cadena="Juan" coma=, entero=1045268154 coma=,  entero=12aab parcierr=) puntcoma=;
-SELECT FROM a puntcoma=;
-SELECT COUNT parabre=( parcierr=) FROM tabla puntcoma=;
-SELECT nombre coma=, MAX parabre=(salario parcierr=) FROM Empleado puntcoma=;
-UPDATE SET nombre asign== cadena='Carlos' FROM Empleado WHERE cédula asign== decimal=12.5 puntcoma=;
-SELECT * FROM Empleado WHERE salario menorq=< entero=2000000 ORDER BY nombre ASC .  puntcoma=;
+CREATE TABLE id0=Empleado parabre=(id1=nombre VARCHAR parabre=( entero=20 parcierr=) coma=, id2=cédula INTEGER coma=, id3=salario DECIMAL parabre=( entero=2 parcierr=) parcierr=) puntcoma=;
+INSERT INTO id4=Empleado VALUES parabre=( cadena="Juan" coma=, entero=1045268154 coma=,  entero=12id4=aab parcierr=) puntcoma=;
+SELECT FROM id5=a puntcoma=;
+SELECT COUNT parabre=( parcierr=) FROM id6=tabla puntcoma=;
+SELECT id7=nombre coma=, MAX parabre=(id7=salario parcierr=) FROM id7=Empleado puntcoma=;
+UPDATE SET id7=nombre asign== cadena='Carlos' FROM id7=Empleado WHERE id7=cédula asign== decimal=12.5 puntcoma=;
+SELECT * FROM id7=Empleado WHERE id7=salario menorq=< entero=2000000 ORDER BY id7=nombre ASC .  puntcoma=;
+
+7 identificadores
+
+id0= Empleado
+id1= nombre
+id2= cédula
+id3= salario
+id4= aab
+id5= a
+id6= tabla
