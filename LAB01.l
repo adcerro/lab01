@@ -19,7 +19,7 @@ COMMAND	{CREATE}|{DROP}|{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
 TYPE INTEGER|DECIMAL|VARCHAR
 DIGIT [0-9]
 INT {DIGIT}+
-FLOAT {DIGIT}+("."|,){DIGIT}
+FLOAT {DIGIT}+("."|,){DIGIT}+
 ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèìòùâêîôûäëïöü]*
 %%
 {COMMAND}|{TYPE} {
@@ -29,8 +29,24 @@ ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèì
     }
     printf("%s", yytext);
 }
+and  {
+   printf("conjunción=%s", yytext); 
+}
+or  {
+   printf("disyunción=%s", yytext); 
+}
+({INT}|{FLOAT})+[[:alpha:]]+ {
+    printf("error=%s", yytext); 
+    ecount++;
+}
 (\")[^"]*(\")|(\')[^']*(\')   { 
     printf(" cadena=%s", yytext); 
+}
+{FLOAT} {
+    printf(" decimal=%s", yytext);
+}
+{INT} {
+    printf(" entero=%s", yytext);
 }
 {ID}   { 
     int i = 0;
@@ -47,12 +63,6 @@ ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèì
         count++;
     }
     found = 0;
-}
-{FLOAT} {
-    printf(" decimal=%s", yytext);
-}
-{INT} {
-    printf(" entero=%s", yytext);
 }
 "+"  {
    printf(" suma=%s", yytext); 
@@ -93,14 +103,11 @@ ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèì
 ">"	{
 	printf(" mayorq=%s", yytext);
 }
-;(" ")+	{
-	printf(" puntcoma=;\n");
-}
 ;\n	{
-	printf(" puntcoma=%s", yytext);
+	printf(" puntcoma=%s",yytext);
 }
-;	{
-	printf(" puntcoma=%s\n", yytext);
+;(" ")*	{
+	printf(" puntcoma=;\n");
 }
 "*" {
     printf("asterisco=%s", yytext);
