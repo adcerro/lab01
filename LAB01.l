@@ -21,6 +21,7 @@ DIGIT [0-9]
 INT {DIGIT}+
 FLOAT {DIGIT}+("."|,){DIGIT}+
 ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèìòùâêîôûäëïöü]*
+STRING (\")[^"]*(\")|(\')[^']*(\')
 %%
 {COMMAND}|{TYPE} {
     int len = yyleng;
@@ -39,7 +40,7 @@ or  {
     printf("error=%s", yytext); 
     ecount++;
 }
-(\")[^"]*(\")|(\')[^']*(\')   { 
+{STRING}   { 
     printf(" cadena=%s", yytext); 
 }
 {FLOAT} {
@@ -108,6 +109,9 @@ or  {
 }
 ;(" ")*	{
 	printf(" puntcoma=;\n");
+}
+"*"/{DIGIT} {
+    printf(" multiplicación=%s", yytext);
 }
 "*" {
     printf("asterisco=%s", yytext);
