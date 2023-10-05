@@ -36,10 +36,6 @@ and  {
 or  {
    printf("disyunción=%s", yytext); 
 }
-({INT}|{FLOAT})+[[:alpha:]]+ {
-    printf("error=%s", yytext); 
-    ecount++;
-}
 {STRING}   { 
     printf(" cadena=%s", yytext); 
 }
@@ -48,6 +44,10 @@ or  {
 }
 {INT} {
     printf(" entero=%s", yytext);
+}
+({INT}(\.|,)?|{FLOAT})+[[:alpha:]]+ {
+    printf("error=%s", yytext); 
+    ecount++;
 }
 {ID}   { 
     int i = 0;
