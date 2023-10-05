@@ -45,7 +45,7 @@ or  {
 {INT} {
     printf(" entero=%s", yytext);
 }
-({INT}(\.|,)?|{FLOAT})+[[:alpha:]]+ {
+({INT}(\.|,)*|{FLOAT})+[[:alpha:]]+ {
     printf("error=%s", yytext); 
     ecount++;
 }
