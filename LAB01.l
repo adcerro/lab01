@@ -110,7 +110,7 @@ or  {
 ;(" ")*	{
 	printf(" puntcoma=;\n");
 }
-"*"/{DIGIT} {
+"*"/(" "*{DIGIT}) {
     printf(" multiplicación=%s", yytext);
 }
 "*" {
