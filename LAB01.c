@@ -1046,7 +1046,7 @@ YY_DO_BEFORE_ACTION; /* set up yytext again */
 YY_RULE_SETUP
 #line 113 "LAB01.l"
 {
-    printf("multiplicación=%s", yytext);
+    printf(" multiplicación=%s", yytext);
 }
 	YY_BREAK
 case 25:
