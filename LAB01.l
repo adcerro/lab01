@@ -45,7 +45,7 @@ or  {
 {INT} {
     printf(" entero=%s", yytext);
 }
-({INT}|{FLOAT})+[[:alpha:]]* {
+({INT}\.?|{FLOAT})+[[:alpha:]]* {
     printf("error=%s", yytext); 
     ecount++;
 }
@@ -110,11 +110,8 @@ or  {
 ;(" ")*	{
 	printf(" puntcoma=;\n");
 }
-"*"/(" "*{DIGIT}) {
-    printf(" multiplicación=%s", yytext);
-}
 "*" {
-    printf("asterisco=%s", yytext);
+    printf(" asterisco=%s", yytext);
 }
 \n {
     printf(" ");
