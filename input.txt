@@ -5,4 +5,3 @@ Select Count() From tabla;
 Select nombre, Max(salario) From Empleado;
 Update Set nombre='Carlos' From Empleado Where cédula=12.5;
 Select * From Empleado Where salario<2000000 Order by nombre Asc . ;
-111111111111111111.a

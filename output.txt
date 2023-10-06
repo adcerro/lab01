@@ -5,7 +5,7 @@ SELECT COUNT parabre=( parcierr=) FROM id5=tabla puntcoma=;
 SELECT id1=nombre coma=, MAX parabre=(id3=salario parcierr=) FROM id0=Empleado puntcoma=;
 UPDATE SET id1=nombre asign== cadena='Carlos' FROM id0=Empleado WHERE id2=cédula asign== decimal=12.5 puntcoma=;
 SELECT  asterisco=* FROM id0=Empleado WHERE id3=salario menorq=< entero=2000000 ORDER BY id1=nombre ASC error=.  puntcoma=;
-error=111111111111111111.a
+
 6 identificadores
 
 id0= Empleado
@@ -15,4 +15,4 @@ id3= salario
 id4= a
 id5= tabla
 
-3 errores léxicos
+2 errores léxicos
