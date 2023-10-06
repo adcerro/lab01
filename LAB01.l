@@ -19,7 +19,7 @@ COMMAND	{CREATE}|{DROP}|{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
 TYPE INTEGER|DECIMAL|VARCHAR
 DIGIT [0-9]
 INT {DIGIT}+
-FLOAT {DIGIT}+("."|,){DIGIT}+
+FLOAT {DIGIT}+\.{DIGIT}+
 ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèìòùâêîôûäëïöü]*
 STRING (\")[^"]*(\")|(\')[^']*(\')
 %%
@@ -45,7 +45,7 @@ or  {
 {INT} {
     printf(" entero=%s", yytext);
 }
-({INT}(\.|,)*|{FLOAT})+[[:alpha:]]+ {
+({INT}|{FLOAT})+[[:alpha:]]* {
     printf("error=%s", yytext); 
     ecount++;
 }
