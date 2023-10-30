@@ -576,12 +576,13 @@ char *yytext;
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "LAB02.h"
 int count = 0;
 int ecount = 0;
 char names[80][80];
 int found = 0;
-#line 584 "LAB01.c"
 #line 585 "LAB01.c"
+#line 586 "LAB01.c"
 
 #define INITIAL 0
 
@@ -798,9 +799,9 @@ YY_DECL
 		}
 
 	{
-#line 25 "LAB01.l"
+#line 26 "LAB01.l"
 
-#line 804 "LAB01.c"
+#line 805 "LAB01.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -859,7 +860,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 26 "LAB01.l"
+#line 27 "LAB01.l"
 {
     int len = yyleng;
     for (int i = 0; i < len; i++) {
@@ -870,14 +871,14 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 33 "LAB01.l"
+#line 34 "LAB01.l"
 {
    printf("conjunción=%s", yytext); 
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 36 "LAB01.l"
+#line 37 "LAB01.l"
 {
    printf("disyunción=%s", yytext); 
 }
@@ -885,28 +886,28 @@ YY_RULE_SETUP
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 39 "LAB01.l"
+#line 40 "LAB01.l"
 { 
     printf(" cadena=%s", yytext); 
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 42 "LAB01.l"
+#line 43 "LAB01.l"
 {
     printf(" decimal=%s", yytext);
 }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 45 "LAB01.l"
+#line 46 "LAB01.l"
 {
     printf(" entero=%s", yytext);
 }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 48 "LAB01.l"
+#line 49 "LAB01.l"
 {
     printf("error=%s", yytext); 
     ecount++;
@@ -914,7 +915,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 52 "LAB01.l"
+#line 53 "LAB01.l"
 { 
     int i = 0;
     while ( i < count && !found) {
@@ -934,91 +935,91 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 68 "LAB01.l"
+#line 69 "LAB01.l"
 {
    printf(" suma=%s", yytext); 
 }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 71 "LAB01.l"
+#line 72 "LAB01.l"
 {
    printf(" resta=%s", yytext); 
 }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 74 "LAB01.l"
+#line 75 "LAB01.l"
 {
    printf(" división=%s", yytext); 
 }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 77 "LAB01.l"
+#line 78 "LAB01.l"
 {
    printf(" igualdad=%s", yytext); 
 }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 80 "LAB01.l"
+#line 81 "LAB01.l"
 {
    printf(" asign=%s", yytext); 
 }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 83 "LAB01.l"
+#line 84 "LAB01.l"
 {
     printf(" parabre=%s", yytext);
 }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 86 "LAB01.l"
+#line 87 "LAB01.l"
 {
     printf(" parcierr=%s", yytext);
 }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 89 "LAB01.l"
+#line 90 "LAB01.l"
 {
 	printf(" coma=%s", yytext);
 }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 92 "LAB01.l"
+#line 93 "LAB01.l"
 {
 	printf(" diferencia=%s", yytext);
 }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 95 "LAB01.l"
+#line 96 "LAB01.l"
 {
 	printf(" menoroigualq=%s", yytext);
 }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 98 "LAB01.l"
+#line 99 "LAB01.l"
 {
 	printf(" mayoroigualq=%s", yytext);
 }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 101 "LAB01.l"
+#line 102 "LAB01.l"
 {
 	printf(" menorq=%s", yytext);
 }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 104 "LAB01.l"
+#line 105 "LAB01.l"
 {
 	printf(" mayorq=%s", yytext);
 }
@@ -1026,21 +1027,21 @@ YY_RULE_SETUP
 case 22:
 /* rule 22 can match eol */
 YY_RULE_SETUP
-#line 107 "LAB01.l"
+#line 108 "LAB01.l"
 {
 	printf(" puntcoma=%s",yytext);
 }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 110 "LAB01.l"
+#line 111 "LAB01.l"
 {
 	printf(" puntcoma=;\n");
 }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 113 "LAB01.l"
+#line 114 "LAB01.l"
 {
     printf(" asterisco=%s", yytext);
 }
@@ -1048,21 +1049,21 @@ YY_RULE_SETUP
 case 25:
 /* rule 25 can match eol */
 YY_RULE_SETUP
-#line 116 "LAB01.l"
+#line 117 "LAB01.l"
 {
     printf(" ");
 }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 119 "LAB01.l"
+#line 120 "LAB01.l"
 {
     printf(" ");
 }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 122 "LAB01.l"
+#line 123 "LAB01.l"
 { 
     printf("error=%s", yytext); 
     ecount++;
@@ -1070,10 +1071,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 126 "LAB01.l"
+#line 127 "LAB01.l"
 ECHO;
 	YY_BREAK
-#line 1077 "LAB01.c"
+#line 1078 "LAB01.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2078,31 +2079,8 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 126 "LAB01.l"
+#line 127 "LAB01.l"
 
 
-int main(int argc, char* argv[]) {
-     if (argc != 2) {
-        printf("Usage: %s <input_file>\n", argv[0]);
-        return 1;
-    }
 
-    FILE* inputFile = fopen(argv[1], "r");
-    if (inputFile == NULL) {
-        perror("Error opening input file");
-        return 1;
-    }
-
-    yyin = inputFile;
-    yylex();
-    printf("\n%d identificadores\n\n",count);
-    int i;
-    for (i = 0; i < count; i++) {
-        printf("id%d= %s\n",i, names[i]);
-    }
-    printf("\n%d errores léxicos",ecount);
-    fclose(inputFile);
-
-    return 0;
-}
 

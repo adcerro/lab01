@@ -37,7 +37,7 @@ To be able to use the analizer you must first generate the c code from the lex f
 ## Usage
 To get the c code and header from the yacc file use
 
-`bison -d LAB02.y`
+`bison LAB02.y --header=LAB02.h --output=LAB02.c`
 
 To get the c code from the lex file use
 

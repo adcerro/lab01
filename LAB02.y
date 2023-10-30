@@ -1,11 +1,13 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+extern FILE *yyin;
 %}
+%token NUMBER LETTER
 %%
-input: /* empty */
-     | input line
-     ;
+expr: NUMBER '+' NUMBER { printf("%d\n", $1 + $3); }
+    | LETTER           { printf("%c\n", $1); }
+    ;
 %%
 int main(int argc, char* argv[]) {
      if (argc != 2) {
@@ -21,7 +23,11 @@ int main(int argc, char* argv[]) {
 
     yyin = inputFile;
     yyparse();
-    if(e)
     fclose(inputFile);
+
     return 0;
+}
+yyerror(char *s)
+{
+  fprintf(stderr, "error: %s\n", s);
 }
