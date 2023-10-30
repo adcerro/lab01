@@ -1,6 +1,6 @@
 # Lex sql analizer
-> This is the second lab for my compilers class.
-> It is a sql analizer created using lex/flex
+> This is the third lab for my compilers class.
+> It is a sql analizer created using lex/flex and yacc/bisson
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -16,13 +16,13 @@
 
 
 ## General Information
-- This is a project for the compilers class, it doesn't intend to be too consice on refactoring the code, but rather precise at detecting the logic of sql commands
+- This is a project for the compilers class, it doesn't intend to be too consice on refactoring the code, but rather precise at detecting the logic of certain sql commands
 
 
 ## Technologies Used
 - flex - version 2.6.4
+- bison - version 3.8.2
 - gcc - version 11.4.0
-
 
 ## Features
 List the ready features here:
@@ -31,21 +31,25 @@ List the ready features here:
 
 
 ## Setup
-To be able to use the analizer you must first generate the c code with flex and compile it with gcc
+To be able to use the analizer you must first generate the c code from the lex file using flex, then generate de c code from the yacc file using bisson and compile both with gcc
 
 
 ## Usage
+To get the c code and header from the yacc file use
+
+`bison -d LAB02.y`
+
 To get the c code from the lex file use
 
 `flex -o LAB01.c LAB01.l`
 
 To get the executable from the c file use
 
-`gcc LAB01.c -o LAB01 -ll`
+`gcc -o LAB02 LAB02.c LAB01.c -lfl`
 
 Now you can run the executable with
 
-`./LAB01 input.txt > output.txt`
+`./LAB02 input.txt > output.txt`
 
 With this you will get the results of the analizer to an output .txt file
 
@@ -59,14 +63,13 @@ Room for improvement:
 - Way of refactoring
 
 To do:
-- Detection of typing errors
-- Proper variable detection
+- Understand Bison
 
 
 ## Acknowledgements
 Give credit here.
 - This project was inspired by professor Marquez
-- Many thanks to people's questions in stackoverflox and a bit of help from bing chat
+- Many thanks to people's questions in stackoverflow, bing chat and chat-gpt.
 
 
 ## Contact

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "LAB02.h"
 int count = 0;
 int ecount = 0;
 char names[80][80];
@@ -125,27 +126,4 @@ or  {
 }
 %%
 
-int main(int argc, char* argv[]) {
-     if (argc != 2) {
-        printf("Usage: %s <input_file>\n", argv[0]);
-        return 1;
-    }
 
-    FILE* inputFile = fopen(argv[1], "r");
-    if (inputFile == NULL) {
-        perror("Error opening input file");
-        return 1;
-    }
-
-    yyin = inputFile;
-    yylex();
-    printf("\n%d identificadores\n\n",count);
-    int i;
-    for (i = 0; i < count; i++) {
-        printf("id%d= %s\n",i, names[i]);
-    }
-    printf("\n%d errores léxicos",ecount);
-    fclose(inputFile);
-
-    return 0;
-}
