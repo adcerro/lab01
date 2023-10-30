@@ -1,4 +1,4 @@
-# Lex sql analizer
+# Lex & Yacc sql analizer
 > This is the third lab for my compilers class.
 > It is a sql analizer created using lex/flex and yacc/bisson
 
