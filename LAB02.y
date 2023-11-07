@@ -3,11 +3,23 @@
 #include <stdlib.h>
 extern FILE *yyin;
 %}
-%token NUMBER LETTER
+%token ID PC
+%token NUM
+%token EXTYPE INT
+%token AP CP COMA
+%token CREATE DROP
+%token ERROR
 %%
-expr: NUMBER '+' NUMBER { printf("%d\n", $1 + $3); }
-    | LETTER           { printf("%c\n", $1); }
-    ;
+input: line PC input| line PC;
+line: create
+    | drop | error {printf("Error en linea\n");};
+drop: DROP ID;
+create:  CREATE ID AP dec CP;
+dec: ID comp decs;
+comp: EXTYPE AP NUM CP
+    |   INT;
+decs: COMA dec
+    | ;
 %%
 int main(int argc, char* argv[]) {
      if (argc != 2) {
@@ -20,7 +32,6 @@ int main(int argc, char* argv[]) {
         perror("Error opening input file");
         return 1;
     }
-
     yyin = inputFile;
     yyparse();
     fclose(inputFile);
@@ -29,5 +40,5 @@ int main(int argc, char* argv[]) {
 }
 int yyerror(char *s)
 {
-  fprintf(stderr, "error: %s\n", s);
+  //fprintf(stderr, "error: %s\n", s);
 }

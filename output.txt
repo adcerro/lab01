@@ -1,18 +1,18 @@
-CREATE TABLE id0=Empleado parabre=(id1=nombre VARCHAR parabre=( entero=20 parcierr=) coma=, id2=cédula INTEGER coma=, id3=salario DECIMAL parabre=( entero=2 parcierr=) parcierr=) puntcoma=;
-INSERT INTO id0=Empleado VALUES parabre=( cadena="Juan" coma=, entero=1045268154 coma=, error=12aab parcierr=) puntcoma=;
-SELECT FROM id4=a puntcoma=;
-SELECT COUNT parabre=( parcierr=) FROM id5=tabla puntcoma=;
-SELECT id1=nombre coma=, MAX parabre=(id3=salario parcierr=) FROM id0=Empleado puntcoma=;
-UPDATE SET id1=nombre asign== cadena='Carlos' FROM id0=Empleado WHERE id2=cédula asign== decimal=12.5 puntcoma=;
-SELECT  asterisco=* FROM id0=Empleado WHERE id3=salario menorq=< entero=2000000 ORDER BY id1=nombre ASC error=.  puntcoma=;
-
-6 identificadores
-
-id0= Empleado
-id1= nombre
-id2= cédula
-id3= salario
-id4= a
-id5= tabla
-
-2 errores léxicos
+create got called
+id got called
+parabre
+id got called
+extype got called
+parabre
+int got called
+parcierra
+coma
+id got called
+coma
+id got called
+extype got called
+parabre
+int got called
+parcierra
+parcierra
+puntcoma
