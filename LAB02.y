@@ -3,6 +3,7 @@
 #include <stdlib.h>
 extern FILE *yyin;
 %}
+%locations
 %token ID PC
 %token NUM
 %token EXTYPE INT
@@ -12,7 +13,7 @@ extern FILE *yyin;
 %%
 input: line PC input| line PC;
 line: create
-    | drop | error {printf("Error en linea\n");};
+    | drop | error {printf("Error en linea @n\n");};
 drop: DROP ID;
 create:  CREATE ID AP dec CP;
 dec: ID comp decs;
