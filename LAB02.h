@@ -64,9 +64,15 @@ extern int yydebug;
     PC = 265,                      /* PC  */
     CREATE = 266,                  /* CREATE  */
     DROP = 267,                    /* DROP  */
-    INSERT = 268,                  /* INSERT  */
-    VALUES = 269,                  /* VALUES  */
-    ERROR = 270                    /* ERROR  */
+    VALUES = 268,                  /* VALUES  */
+    INSERT = 269,                  /* INSERT  */
+    DELETE = 270,                  /* DELETE  */
+    UPDATE = 271,                  /* UPDATE  */
+    WHERE = 272,                   /* WHERE  */
+    AND = 273,                     /* AND  */
+    OR = 274,                      /* OR  */
+    ERROR = 275,                   /* ERROR  */
+    CMP = 276                      /* CMP  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

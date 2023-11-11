@@ -8,15 +8,15 @@ int count = 0;
 int ecount = 0;
 char names[80][80];
 int found = 0;
+#define YY_USER_ACTION yylloc.first_line = yylloc.last_line = yylineno;
 %}
 %option caseless
 %option yylineno
 CREATE CREATE(" ")+TABLE
 DROP DROP(" ")+TABLE
 INSERT INSERT(" ")+INTO
-VALUES VALUES
-SEARCH SELECT|WHERE|GROUP(" ")+BY|ORDER(" ")+BY
-MANIPULATE DELETE|UPDATE
+DELETE DELETE(" ")+FROM
+SEARCH SELECT|GROUP(" ")+BY|ORDER(" ")+BY
 FUNCTION MAX|MIN|AVG|COUNT
 RESERVED FROM|SET|ASC|DESC
 COMMAND	{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
@@ -27,6 +27,7 @@ INT {DIGIT}+
 FLOAT {DIGIT}+\.{DIGIT}+
 ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèìòùâêîôûäëïöü]*
 STRING (\")[^"]*(\")|(\')[^']*(\')
+COMPARE "<>"|"<="|">="|"<"|">"|"=="	
 %%
 {CREATE}    {
     return CREATE;
@@ -37,8 +38,8 @@ STRING (\")[^"]*(\")|(\')[^']*(\')
 {INSERT}    {
     return INSERT;
 }
-{VALUES}    {
-    return VALUES;
+{DELETE}    {
+    return DELETE;
 }
 {EXTYPE} {
     return EXTYPE;
@@ -46,11 +47,25 @@ STRING (\")[^"]*(\")|(\')[^']*(\')
 {INTEGER}   {
     return INT;
 }
+where   {
+    return WHERE;
+}
+update  {
+    return UPDATE;
+}
+values    {
+    return VALUES;
+}
 and  {
-//   printf("conjunción=%s", yytext); 
+//   printf("conjunción=%s", yytext);
+    return AND;
 }
 or  {
 //   printf("disyunción=%s", yytext); 
+    return OR;
+}
+{COMPARE}   {
+    return CMP;
 }
 {STRING}   { 
 //    printf(" cadena=%s", yytext); 
@@ -94,9 +109,6 @@ return ID;
 "/"  {
 //   printf(" división=%s", yytext); 
 }
-"=="  {
-//   printf(" igualdad=%s", yytext); 
-}
 "="  {
 //   printf(" asign=%s", yytext); 
 }
@@ -111,21 +123,6 @@ return CP;
 ,	{
 //	printf(" coma=%s", yytext);
 return COMA;
-}
-"<>"	{
-//	printf(" diferencia=%s", yytext);
-}
-"<="	{
-//	printf(" menoroigualq=%s", yytext);
-}
-">="	{
-//	printf(" mayoroigualq=%s", yytext);
-}
-"<"	{
-//	printf(" menorq=%s", yytext);
-}
-">"	{
-//	printf(" mayorq=%s", yytext);
 }
 ;\n	{
 //	printf(" puntcoma=%s",yytext);
