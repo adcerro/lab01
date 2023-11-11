@@ -10,13 +10,16 @@ char names[80][80];
 int found = 0;
 %}
 %option caseless
+%option yylineno
 CREATE CREATE(" ")+TABLE
 DROP DROP(" ")+TABLE
+INSERT INSERT(" ")+INTO
+VALUES VALUES
 SEARCH SELECT|WHERE|GROUP(" ")+BY|ORDER(" ")+BY
-MANIPULATE INSERT|DELETE|UPDATE
+MANIPULATE DELETE|UPDATE
 FUNCTION MAX|MIN|AVG|COUNT
-RESERVED INTO|VALUES|FROM|SET|ASC|DESC
-COMMAND	{CREATE}|{DROP}|{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
+RESERVED FROM|SET|ASC|DESC
+COMMAND	{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
 EXTYPE DECIMAL|VARCHAR
 INTEGER INTEGER
 DIGIT [0-9]
@@ -26,14 +29,18 @@ ID [[:alpha:]áéíóúàèìòùâêîôûäëïöü][[:alnum:]áéíóúàèì
 STRING (\")[^"]*(\")|(\')[^']*(\')
 %%
 {CREATE}    {
-    printf("create got called\n");
     return CREATE;
 }
 {DROP}  {
     return DROP;
 }
+{INSERT}    {
+    return INSERT;
+}
+{VALUES}    {
+    return VALUES;
+}
 {EXTYPE} {
-    printf("extype got called\n");
     return EXTYPE;
 }
 {INTEGER}   {
@@ -50,11 +57,9 @@ or  {
 }
 {FLOAT} {
 //    printf(" decimal=%s", yytext);
-printf("float got called\n");
     return NUM;
 }
 {INT} {
-    printf("int got called\n");
 //    printf(" entero=%s", yytext);
     return NUM;
 }
@@ -64,7 +69,6 @@ printf("float got called\n");
     return ERROR;
 }
 {ID}   { 
-    printf("id got called\n");
 //    int i = 0;
 //    while ( i < count && !found) {
 //        if (strcmp(names[i], yytext) == 0) {
@@ -98,17 +102,14 @@ return ID;
 }
 "(" {
 //    printf(" parabre=%s", yytext);
-printf("parabre\n");
  return AP;
 }
 ")" {
 //    printf(" parcierr=%s", yytext);
-printf("parcierra\n");
 return CP;
 }
 ,	{
 //	printf(" coma=%s", yytext);
-printf("coma\n");
 return COMA;
 }
 "<>"	{
@@ -128,11 +129,9 @@ return COMA;
 }
 ;\n	{
 //	printf(" puntcoma=%s",yytext);
-printf("puntcoma\n");
 return PC;
 }
-;(" ")*	{
-printf("puntcoma\n");    
+;(" ")*	{  
 //	printf(" puntcoma=;\n");
 return PC;
 }

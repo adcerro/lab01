@@ -1,30 +1,40 @@
-create got called
-id got called
-parabre
-id got called
-extype got called
-parabre
 Error en linea @n
 Error en linea @n
-parcierra
-Error en linea @n
-coma
-Error en linea @n
-id got called
 Error en linea @n
 Error en linea @n
-coma
 Error en linea @n
-id got called
 Error en linea @n
-extype got called
 Error en linea @n
-parabre
 Error en linea @n
-int got called
 Error en linea @n
-parcierra
 Error en linea @n
-parcierra
 Error en linea @n
-puntcoma
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
+Error en linea @n
