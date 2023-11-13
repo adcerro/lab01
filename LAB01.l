@@ -16,9 +16,12 @@ CREATE CREATE(" ")+TABLE
 DROP DROP(" ")+TABLE
 INSERT INSERT(" ")+INTO
 DELETE DELETE(" ")+FROM
-SEARCH SELECT|GROUP(" ")+BY|ORDER(" ")+BY
+SELECT SELECT
+GROUP GROUP(" ")+BY
+ORDER ORDER(" ")+BY
 FUNCTION MAX|MIN|AVG|COUNT
-RESERVED FROM|SET|ASC|DESC
+RESERVED SET|ASC|DESC
+FROM FROM
 COMMAND	{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
 EXTYPE DECIMAL|VARCHAR
 INTEGER INTEGER
@@ -47,7 +50,7 @@ COMPARE "<>"|"<="|">="|"<"|">"|"=="
 {INTEGER}   {
     return INT;
 }
-where   {
+WHERE   {
     return WHERE;
 }
 update  {
@@ -134,6 +137,7 @@ return PC;
 }
 "*" {
 //    printf(" asterisco=%s", yytext);
+return AST;
 }
 \n {
 //    printf(" ");

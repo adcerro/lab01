@@ -14,12 +14,16 @@ int eLine =-1;
 %token WHERE AND OR
 %token ERROR
 %token CMP
+%token SELECT GROUP ORDER AST
+%token RESERVED FUNCTION
+%token FROM
 %%
 input: line PC input| line PC;
 line: create
     | drop 
     | insert
     | delete
+    | select
     | error {if(eLine==-1){printf("Incorrecto\n\n");}if(eLine!=@1.first_line){eLine=@1.first_line;printf("Error en linea %d\n",eLine);}};
 drop: DROP ID;
 create:  CREATE ID AP dec CP;
@@ -39,6 +43,18 @@ comp: EXTYPE AP NUM CP
     |   INT;
 decs: COMA dec
     | ;
+select: SELECT bfc
+    | SELECT cao;
+bfc: busq FROM ID
+    | FUNCTION AP funcs CP FROM ID;
+busq: AST
+    | ID ids;
+funcs: ID
+    | ID COMA FUNCTION AP funcs CP;
+cao: busq FROM ID WHERE condiciones
+    | busq FROM ID GROUP ID
+    | busq FROM ID ORDER ID ids RESERVED
+    | busq FROM ID WHERE condiciones GROUP ID ORDER ID ids RESERVED;
 %%
 int main(int argc, char* argv[]) {
      if (argc != 2) {

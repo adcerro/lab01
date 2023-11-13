@@ -799,7 +799,7 @@ YY_DECL
 		}
 
 	{
-#line 31 "LAB01.l"
+#line 34 "LAB01.l"
 
 #line 805 "LAB01.c"
 
@@ -870,70 +870,70 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 32 "LAB01.l"
+#line 35 "LAB01.l"
 {
     return CREATE;
 }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 35 "LAB01.l"
+#line 38 "LAB01.l"
 {
     return DROP;
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 38 "LAB01.l"
+#line 41 "LAB01.l"
 {
     return INSERT;
 }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 41 "LAB01.l"
+#line 44 "LAB01.l"
 {
     return DELETE;
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 44 "LAB01.l"
+#line 47 "LAB01.l"
 {
     return EXTYPE;
 }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 47 "LAB01.l"
+#line 50 "LAB01.l"
 {
     return INT;
 }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 50 "LAB01.l"
+#line 53 "LAB01.l"
 {
     return WHERE;
 }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 53 "LAB01.l"
+#line 56 "LAB01.l"
 {
     return UPDATE;
 }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 56 "LAB01.l"
+#line 59 "LAB01.l"
 {
     return VALUES;
 }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 59 "LAB01.l"
+#line 62 "LAB01.l"
 {
 //   printf("conjunción=%s", yytext);
     return AND;
@@ -941,7 +941,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 63 "LAB01.l"
+#line 66 "LAB01.l"
 {
 //   printf("disyunción=%s", yytext); 
     return OR;
@@ -949,7 +949,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 67 "LAB01.l"
+#line 70 "LAB01.l"
 {
     return CMP;
 }
@@ -957,14 +957,14 @@ YY_RULE_SETUP
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 70 "LAB01.l"
+#line 73 "LAB01.l"
 { 
 //    printf(" cadena=%s", yytext); 
 }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 73 "LAB01.l"
+#line 76 "LAB01.l"
 {
 //    printf(" decimal=%s", yytext);
     return NUM;
@@ -972,7 +972,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 77 "LAB01.l"
+#line 80 "LAB01.l"
 {
 //    printf(" entero=%s", yytext);
     return NUM;
@@ -980,7 +980,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 81 "LAB01.l"
+#line 84 "LAB01.l"
 {
 //    printf("error=%s", yytext); 
 //    ecount++;
@@ -989,7 +989,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 86 "LAB01.l"
+#line 89 "LAB01.l"
 { 
 //    int i = 0;
 //    while ( i < count && !found) {
@@ -1010,35 +1010,35 @@ return ID;
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 103 "LAB01.l"
+#line 106 "LAB01.l"
 {
 //   printf(" suma=%s", yytext); 
 }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 106 "LAB01.l"
+#line 109 "LAB01.l"
 {
 //   printf(" resta=%s", yytext); 
 }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 109 "LAB01.l"
+#line 112 "LAB01.l"
 {
 //   printf(" división=%s", yytext); 
 }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 112 "LAB01.l"
+#line 115 "LAB01.l"
 {
 //   printf(" asign=%s", yytext); 
 }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 115 "LAB01.l"
+#line 118 "LAB01.l"
 {
 //    printf(" parabre=%s", yytext);
  return AP;
@@ -1046,7 +1046,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 119 "LAB01.l"
+#line 122 "LAB01.l"
 {
 //    printf(" parcierr=%s", yytext);
 return CP;
@@ -1054,7 +1054,7 @@ return CP;
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 123 "LAB01.l"
+#line 126 "LAB01.l"
 {
 //	printf(" coma=%s", yytext);
 return COMA;
@@ -1063,7 +1063,7 @@ return COMA;
 case 25:
 /* rule 25 can match eol */
 YY_RULE_SETUP
-#line 127 "LAB01.l"
+#line 130 "LAB01.l"
 {
 //	printf(" puntcoma=%s",yytext);
 return PC;
@@ -1071,7 +1071,7 @@ return PC;
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 131 "LAB01.l"
+#line 134 "LAB01.l"
 {  
 //	printf(" puntcoma=;\n");
 return PC;
@@ -1079,29 +1079,30 @@ return PC;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 135 "LAB01.l"
+#line 138 "LAB01.l"
 {
 //    printf(" asterisco=%s", yytext);
+return AST;
 }
 	YY_BREAK
 case 28:
 /* rule 28 can match eol */
 YY_RULE_SETUP
-#line 138 "LAB01.l"
+#line 142 "LAB01.l"
 {
 //    printf(" ");
 }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 141 "LAB01.l"
+#line 145 "LAB01.l"
 {
 //    printf(" ");
 }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 144 "LAB01.l"
+#line 148 "LAB01.l"
 { 
 //    printf("error=%s", yytext); 
 //    ecount++;
@@ -1110,10 +1111,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 149 "LAB01.l"
+#line 153 "LAB01.l"
 ECHO;
 	YY_BREAK
-#line 1117 "LAB01.c"
+#line 1118 "LAB01.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2130,7 +2131,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 149 "LAB01.l"
+#line 153 "LAB01.l"
 
 
 

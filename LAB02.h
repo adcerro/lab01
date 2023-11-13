@@ -72,7 +72,14 @@ extern int yydebug;
     AND = 273,                     /* AND  */
     OR = 274,                      /* OR  */
     ERROR = 275,                   /* ERROR  */
-    CMP = 276                      /* CMP  */
+    CMP = 276,                     /* CMP  */
+    SELECT = 277,                  /* SELECT  */
+    GROUP = 278,                   /* GROUP  */
+    ORDER = 279,                   /* ORDER  */
+    AST = 280,                     /* AST  */
+    RESERVED = 281,                /* RESERVED  */
+    FUNCTION = 282,                /* FUNCTION  */
+    FROM = 283                     /* FROM  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
