@@ -53,6 +53,15 @@ COMPARE "<>"|"<="|">="|"<"|">"|"=="
 {SET}   {
     return SET;
 }
+{GROUP} {
+    return GROUP;
+}
+{ORDER} {
+    return ORDER;
+}
+{FUNCTION}  {
+    return FUNCTION;
+}
 WHERE   {
     return WHERE;
 }

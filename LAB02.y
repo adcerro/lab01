@@ -59,13 +59,15 @@ update: UPDATE ID SET ID ASIGN num WHERE conditions;
 select: SELECT bfc
     | SELECT cao;
 bfc: busq FROM ID
-    | FUNCTION AP funcs CP FROM ID;
+    | funcs FROM ID;
 busq: AST
     | ID ids;
 ids: COMA ID ids
     | ;
 funcs: ID
-    | ID COMA FUNCTION AP funcs CP;
+    | FUNCTION AP ID CP
+    | ID COMA funcs
+    | FUNCTION AP ID CP COMA funcs;
 cao: busq FROM ID WHERE conditions
     | busq FROM ID GROUP ID
     | busq FROM ID ORDER ID ids RESERVED
