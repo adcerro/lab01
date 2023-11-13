@@ -916,7 +916,7 @@ case 7:
 YY_RULE_SETUP
 #line 53 "LAB01.l"
 {
-
+    return SET;
 }
 	YY_BREAK
 case 8:
@@ -1046,12 +1046,13 @@ case 22:
 YY_RULE_SETUP
 #line 122 "LAB01.l"
 {
-//   printf(" asign=%s", yytext); 
+//   printf(" asign=%s", yytext);
+    return ASIGN;
 }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 125 "LAB01.l"
+#line 126 "LAB01.l"
 {
 //    printf(" parabre=%s", yytext);
  return AP;
@@ -1059,7 +1060,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 129 "LAB01.l"
+#line 130 "LAB01.l"
 {
 //    printf(" parcierr=%s", yytext);
 return CP;
@@ -1067,7 +1068,7 @@ return CP;
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 133 "LAB01.l"
+#line 134 "LAB01.l"
 {
 //	printf(" coma=%s", yytext);
 return COMA;
@@ -1076,7 +1077,7 @@ return COMA;
 case 26:
 /* rule 26 can match eol */
 YY_RULE_SETUP
-#line 137 "LAB01.l"
+#line 138 "LAB01.l"
 {
 //	printf(" puntcoma=%s",yytext);
 return PC;
@@ -1084,7 +1085,7 @@ return PC;
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 141 "LAB01.l"
+#line 142 "LAB01.l"
 {  
 //	printf(" puntcoma=;\n");
 return PC;
@@ -1092,7 +1093,7 @@ return PC;
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 145 "LAB01.l"
+#line 146 "LAB01.l"
 {
 //    printf(" asterisco=%s", yytext);
 return AST;
@@ -1101,21 +1102,21 @@ return AST;
 case 29:
 /* rule 29 can match eol */
 YY_RULE_SETUP
-#line 149 "LAB01.l"
+#line 150 "LAB01.l"
 {
 //    printf(" ");
 }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 152 "LAB01.l"
+#line 153 "LAB01.l"
 {
 //    printf(" ");
 }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 155 "LAB01.l"
+#line 156 "LAB01.l"
 { 
 //    printf("error=%s", yytext); 
 //    ecount++;
@@ -1124,10 +1125,10 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 160 "LAB01.l"
+#line 161 "LAB01.l"
 ECHO;
 	YY_BREAK
-#line 1131 "LAB01.c"
+#line 1132 "LAB01.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2144,7 +2145,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 160 "LAB01.l"
+#line 161 "LAB01.l"
 
 
 

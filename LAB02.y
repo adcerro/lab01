@@ -13,10 +13,10 @@ int eLine =-1;
 %token INSERT DELETE UPDATE
 %token WHERE AND OR
 %token ERROR
-%token CMP PLUS MINUS DIV
+%token CMP PLUS MINUS DIV ASIGN
 %token SELECT GROUP ORDER AST
 %token RESERVED FUNCTION
-%token FROM
+%token FROM SET
 %%
 input: line PC input| line PC;
 line: create
@@ -55,6 +55,7 @@ equ: num PLUS equ
 num: NUM
     | FNUM
     | ID;
+update: UPDATE ID SET ID ASIGN num WHERE conditions;
 select: SELECT bfc
     | SELECT cao;
 bfc: busq FROM ID
@@ -69,7 +70,6 @@ cao: busq FROM ID WHERE conditions
     | busq FROM ID GROUP ID
     | busq FROM ID ORDER ID ids RESERVED
     | busq FROM ID WHERE conditions GROUP ID ORDER ID ids RESERVED;
-update: UPDATE ID ;
 %%
 int main(int argc, char* argv[]) {
      if (argc != 2) {

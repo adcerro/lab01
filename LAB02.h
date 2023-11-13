@@ -78,13 +78,15 @@ extern int yydebug;
     PLUS = 279,                    /* PLUS  */
     MINUS = 280,                   /* MINUS  */
     DIV = 281,                     /* DIV  */
-    SELECT = 282,                  /* SELECT  */
-    GROUP = 283,                   /* GROUP  */
-    ORDER = 284,                   /* ORDER  */
-    AST = 285,                     /* AST  */
-    RESERVED = 286,                /* RESERVED  */
-    FUNCTION = 287,                /* FUNCTION  */
-    FROM = 288                     /* FROM  */
+    ASIGN = 282,                   /* ASIGN  */
+    SELECT = 283,                  /* SELECT  */
+    GROUP = 284,                   /* GROUP  */
+    ORDER = 285,                   /* ORDER  */
+    AST = 286,                     /* AST  */
+    RESERVED = 287,                /* RESERVED  */
+    FUNCTION = 288,                /* FUNCTION  */
+    FROM = 289,                    /* FROM  */
+    SET = 290                      /* SET  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

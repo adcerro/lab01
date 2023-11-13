@@ -51,7 +51,7 @@ COMPARE "<>"|"<="|">="|"<"|">"|"=="
     return INT;
 }
 {SET}   {
-
+    return SET;
 }
 WHERE   {
     return WHERE;
@@ -120,7 +120,8 @@ return ID;
     return DIV;
 }
 "="  {
-//   printf(" asign=%s", yytext); 
+//   printf(" asign=%s", yytext);
+    return ASIGN;
 }
 "(" {
 //    printf(" parabre=%s", yytext);
