@@ -19,10 +19,10 @@ DELETE DELETE(" ")+FROM
 SELECT SELECT
 GROUP GROUP(" ")+BY
 ORDER ORDER(" ")+BY
-FUNCTION MAX|MIN|AVG|COUNT
-RESERVED SET|ASC|DESC
+SET SET
 FROM FROM
-COMMAND	{SEARCH}|{MANIPULATE}|{FUNCTION}|{RESERVED}
+FUNCTION MAX|MIN|AVG|COUNT
+RESERVED ASC|DESC
 EXTYPE DECIMAL|VARCHAR
 INTEGER INTEGER
 DIGIT [0-9]
@@ -50,6 +50,9 @@ COMPARE "<>"|"<="|">="|"<"|">"|"=="
 {INTEGER}   {
     return INT;
 }
+{SET}   {
+
+}
 WHERE   {
     return WHERE;
 }
@@ -72,10 +75,11 @@ or  {
 }
 {STRING}   { 
 //    printf(" cadena=%s", yytext); 
+    return STR;
 }
 {FLOAT} {
 //    printf(" decimal=%s", yytext);
-    return NUM;
+    return FNUM;
 }
 {INT} {
 //    printf(" entero=%s", yytext);
@@ -104,13 +108,16 @@ or  {
 return ID;
 }
 "+"  {
-//   printf(" suma=%s", yytext); 
+//   printf(" suma=%s", yytext);
+    return PLUS;
 }
 "-"  {
 //   printf(" resta=%s", yytext); 
+    return MINUS;
 }
 "/"  {
 //   printf(" división=%s", yytext); 
+    return DIV;
 }
 "="  {
 //   printf(" asign=%s", yytext); 

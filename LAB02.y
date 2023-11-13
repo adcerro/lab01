@@ -5,7 +5,7 @@ extern FILE *yyin;
 int eLine =-1;
 %}
 %locations
-%token ID NUM
+%token ID NUM FNUM STR
 %token EXTYPE INT
 %token AP CP COMA PC
 %token CREATE DROP
@@ -13,7 +13,7 @@ int eLine =-1;
 %token INSERT DELETE UPDATE
 %token WHERE AND OR
 %token ERROR
-%token CMP
+%token CMP PLUS MINUS DIV
 %token SELECT GROUP ORDER AST
 %token RESERVED FUNCTION
 %token FROM
@@ -24,37 +24,52 @@ line: create
     | insert
     | delete
     | select
+    | update
     | error {if(eLine==-1){printf("Incorrecto\n\n");}if(eLine!=@1.first_line){eLine=@1.first_line;printf("Error en linea %d\n",eLine);}};
 drop: DROP ID;
-create:  CREATE ID AP dec CP;
-insert: INSERT ID VALUES AP ID ids CP
-    | INSERT ID AP ID ids CP VALUES AP ID ids CP;
-delete: DELETE ID WHERE condiciones;
-condiciones: condicion AND condiciones
-    | condicion OR condiciones
-    | condicion;
-condicion: ID CMP ID
-    | ID CMP NUM
-    | NUM CMP ID;
-ids: COMA ID ids
-    | ;
+create: CREATE ID AP dec CP;
 dec: ID comp decs;
 comp: EXTYPE AP NUM CP
     |   INT;
 decs: COMA dec
     | ;
+insert: INSERT ID VALUES AP vals CP
+    | INSERT ID AP insertSP CP;
+insertSP: ID CP VALUES AP val
+    | ID COMA insertSP COMA val;
+val: NUM
+    | FNUM
+    | STR
+    | ID;
+vals: val COMA vals|val;
+delete: DELETE ID WHERE conditions;
+conditions: condition AND conditions
+    | condition OR conditions
+    | condition;
+condition: equ CMP equ;
+equ: num PLUS equ
+    |num MINUS equ
+    |num DIV equ
+    |num AST equ
+    |num;
+num: NUM
+    | FNUM
+    | ID;
 select: SELECT bfc
     | SELECT cao;
 bfc: busq FROM ID
     | FUNCTION AP funcs CP FROM ID;
 busq: AST
     | ID ids;
+ids: COMA ID ids
+    | ;
 funcs: ID
     | ID COMA FUNCTION AP funcs CP;
-cao: busq FROM ID WHERE condiciones
+cao: busq FROM ID WHERE conditions
     | busq FROM ID GROUP ID
     | busq FROM ID ORDER ID ids RESERVED
-    | busq FROM ID WHERE condiciones GROUP ID ORDER ID ids RESERVED;
+    | busq FROM ID WHERE conditions GROUP ID ORDER ID ids RESERVED;
+update: UPDATE ID ;
 %%
 int main(int argc, char* argv[]) {
      if (argc != 2) {
