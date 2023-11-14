@@ -30,7 +30,7 @@ drop: DROP ID;
 create: CREATE ID AP dec CP;
 dec: ID comp decs;
 comp: EXTYPE AP NUM CP
-    |   INT;
+    | INT;
 decs: COMA dec
     | ;
 insert: INSERT ID VALUES AP vals CP
@@ -48,10 +48,10 @@ conditions: condition AND conditions
     | condition;
 condition: equ CMP equ;
 equ: num PLUS equ
-    |num MINUS equ
-    |num DIV equ
-    |num AST equ
-    |num;
+    | num MINUS equ
+    | num DIV equ
+    | num AST equ
+    | num;
 num: NUM
     | FNUM
     | ID;
@@ -64,9 +64,9 @@ busq: AST
     | FUNCTION AP ID CP funcs;
 ids: COMA ID ids
     | ;
-funcs: 
-    | COMA ID funcs
-    | COMA FUNCTION AP ID CP funcs;
+funcs: COMA ID funcs
+    | COMA FUNCTION AP ID CP funcs
+    | ;
 cao: busq FROM ID WHERE conditions
     | busq FROM ID GROUP ID
     | busq FROM ID ORDER ID ids RESERVED
