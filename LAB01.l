@@ -35,6 +35,9 @@ COMPARE "<>"|"<="|">="|"<"|">"|"=="
 {CREATE}    {
     return CREATE;
 }
+{SELECT}    {
+    return SELECT;
+}
 {DROP}  {
     return DROP;
 }
@@ -61,6 +64,9 @@ COMPARE "<>"|"<="|">="|"<"|">"|"=="
 }
 {FUNCTION}  {
     return FUNCTION;
+}
+{FROM}  {
+    return FROM;
 }
 WHERE   {
     return WHERE;
