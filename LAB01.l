@@ -68,6 +68,9 @@ COMPARE "<>"|"<="|">="|"<"|">"|"=="
 {FROM}  {
     return FROM;
 }
+{RESERVED}  {
+    return RESERVED;
+}
 WHERE   {
     return WHERE;
 }
